@@ -1,0 +1,38 @@
+# logs
+logs
+*.log
+npm-debug.log*
+
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# testing
+coverage
+
+# cypress
+cypress.env.json
+cypress/videos/*
+cypress/screenshots/*
+cypress/results/*
+
+# misc
+.DS_Store
+
+# production
+build
+
+# environment
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.nvmrc
+
+# local helper file
+devStore.txt
+
+*.swp
+*.swo
+todo.js

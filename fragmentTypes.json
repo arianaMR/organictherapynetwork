@@ -1,0 +1,32 @@
+{
+  "__schema": {
+    "types": [{
+        "kind": "INTERFACE",
+        "name": "Entry",
+        "possibleTypes": [
+
+          {
+            "name": "HomepagePrimaryPromoV2"
+          }
+        ]
+      },
+      {
+        "kind": "UNION",
+        "name": "StateSpecificPagesPageSpecificReferenceItem",
+        "possibleTypes": [{
+            "name": "StateSpecificPagesMedicalCannabisSpectrum"
+          },
+          {
+            "name": "StateSpecificPagesNumberedList"
+          },
+          {
+            "name": "StateSpecificPagesPhysicianListing2"
+          },
+          {
+            "name": "StateSpecificPagesWaysToAdminister"
+          }
+        ]
+      }
+    ]
+  }
+}

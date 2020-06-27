@@ -1,0 +1,6 @@
+{
+  "presets": [
+    "razzle/babel" // NEEDED
+  ],
+  "plugins": ["babel-plugin-styled-components", "@babel/plugin-proposal-export-default-from"]
+}
