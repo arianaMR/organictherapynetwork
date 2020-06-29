@@ -1,0 +1,55 @@
+.c-header__logo {
+  flex: 1 0 auto;
+  width: 158px!important;
+
+  @media (max-width: 1024px) {
+    width: 118px!important;
+  }
+  // 118px;
+}
+.c-header__logo-islink {
+  color: inherit;
+  text-decoration: none;
+  float: left;
+  margin: 0 40px 60px 0;
+
+
+  .c-header.is-red-on-white &,
+  .c-header.is-scrolled & {
+    color: #f00;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+@keyframes appear {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+.c-header__logo-path {
+  transform-origin: 10px 10px;
+  // BUG: The animation appears to get stuck in Safari. Forcing the scale back
+  // to 1 fixes it.
+  transform: scale(1);
+
+  .c-header__logo-link:hover & {
+    animation-name: appear;
+    animation-duration: 0.25s;
+    animation-direction: forwards;
+    animation-timing-function: linear;
+  }
+}
+
+@for $i from 1 through 8 {
+  .c-header__logo-path--#{$i} {
+    animation-delay: (0.1s * $i);
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ButtonTemplate, { PrimaryCommonProps } from './ButtonTemplate';
+import ButtonTemplate from './ButtonTemplate';
 
 type IButton = {
   children: React.ReactNode;
@@ -9,15 +9,20 @@ type IButton = {
   loading?: boolean;
   width: string;
   withinRed?: boolean;
+  bgHoverColor?: string;
+  fontSize?: string;
+  isStatic?: boolean;
 };
 
 const Button = ({
   children = null,
   onClick = () => undefined,
   disabled = false,
-  withinRed = false,
   loading = false,
   width = '150px',
+  bgHoverColor,
+  fontSize,
+  isStatic,
   ...props
 }: IButton) => (
   <ButtonTemplate
@@ -27,7 +32,9 @@ const Button = ({
     bgColor="white"
     textColor="red2"
     borderColor="red2"
-    {...PrimaryCommonProps(withinRed ? 'red3' : '')}
+    bgHoverColor={bgHoverColor}
+    fontSize={fontSize}
+    isStatic={isStatic}
     width={width}
     {...props}
   >

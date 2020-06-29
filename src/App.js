@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import Helmet from 'react-helmet';
 import { StateInspector } from 'reinspect';
 import theme from './theme';
+import HeaderContainer from './header/containers/HeaderContainer';
 import GlobalStyle from './theme/globalstyle';
 import Routes from './routes/organisms/Routes';
 import CustomIsomorphicProviders from './common/molecules/CustomIsomorphicProviders';
@@ -13,11 +14,11 @@ import Loader from './common/atoms/Loader';
 export const clientHelmetInstance = Helmet;
 
 const useAppReady = () => {
-  const appReady = true; //useSelectors((s) => Object.keys(s.header.stores).length > 0);
-  //const fetchHeaderDataAction = useDispatch(fetchHeaderData);
+  const appReady = true; // useSelectors((s) => Object.keys(s.header.stores).length > 0);
+  // const fetchHeaderDataAction = useDispatch(fetchHeaderData);
 
   if (!appReady) return 'App is ready';
-  //fetchHeaderDataAction();
+  // fetchHeaderDataAction();
   return appReady;
 };
 
@@ -40,6 +41,7 @@ const App = () => {
         <ThemeProvider theme={theme}>
           <div style={{ width: '100vw' }}>
             <GlobalStyle />
+            <HeaderContainer />
             <Routes />
           </div>
         </ThemeProvider>

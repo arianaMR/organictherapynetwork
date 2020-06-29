@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const ButtonCommon = styled.button`
+export const buttonCommonStyles = css`
   border-radius: 5px;
   min-height: 40px;
   font-weight: 600;
@@ -13,11 +13,9 @@ export const ButtonCommon = styled.button`
   }
 `;
 
-export const PrimaryCommonProps = (bgHoverColor: string) => ({
-  fontSize: '15px',
-  width: '150px',
-  bgHoverColor,
-});
+export const ButtonCommon = styled.button`
+  ${buttonCommonStyles}
+`;
 
 type IStyledButton = {
   borderColor: string;
@@ -27,8 +25,9 @@ type IStyledButton = {
   bgHoverColor: string;
   isStatic: boolean;
   fontSize: string;
+  isLoading?: boolean;
 };
-
+// @ts-ignore
 const StyledButton = styled(ButtonCommon)<IStyledButton>`
   background-color: ${props => props.theme.colors[props.bgColor]};
   border: ${props => (props.borderColor ? `1px solid ${props.theme.colors[props.borderColor]}` : 'none')};
@@ -37,26 +36,18 @@ const StyledButton = styled(ButtonCommon)<IStyledButton>`
   ${props => props.width && `width: ${props.width};`};
 
   :hover:not([disabled]) {
-    ${() => `
-    // @ts-ignore`}
-    color: ${props => props.isStatic || props.theme.colors.white};
-    ${() => `
-    // @ts-ignore`}
+    color: ${props => (props.isStatic ? '' : props.theme.colors.white)};
     border: ${props => {
       if (props.isStatic) return null;
       if (props.bgHoverColor) return `1px solid ${props.theme.colors[props.bgHoverColor]}`;
       return `1px solid ${props.theme.colors.red2}`;
     }};
-    ${() => `
-    // @ts-ignore`}
     background-color: ${props => {
       if (props.isStatic) return null;
       if (props.bgHoverColor) return props.theme.colors[props.bgHoverColor];
       return props.theme.colors.red2;
     }};
-    ${() => `
-    // @ts-ignore`}
-    cursor: ${props => props.isLoading && 'progress'};
+    cursor: ${props => (props.isLoading ? 'progress' : '')};
   }
 `;
 
@@ -73,36 +64,59 @@ type IButtonTemplate = {
   bgHoverColor?: string;
   isStatic?: boolean;
 };
-
+// @ts-ignore
 const ButtonTemplate = ({
   children,
   onClick,
-  bgColor = '',
+  bgColor,
   textColor,
-  disabled = false,
+  disabled,
   borderColor,
   bgHoverColor,
-  loading = false,
-  width = '100px',
-  fontSize = '13px',
-  isStatic = false,
+  loading,
+  width,
+  fontSize,
+  isStatic,
   ...props
 }: IButtonTemplate) => (
+  // @ts-ignore
   <StyledButton
+    // @ts-ignore
     onClick={onClick}
+    // @ts-ignore
     disabled={disabled}
+    // @ts-ignore
     bgColor={bgColor}
+    // @ts-ignore
     textColor={textColor}
+    // @ts-ignore
     borderColor={borderColor}
+    // @ts-ignore
     bgHoverColor={bgHoverColor}
+    // @ts-ignore
     isLoading={loading}
+    // @ts-ignore
     width={width}
+    // @ts-ignore
     fontSize={fontSize}
+    // @ts-ignore
     isStatic={isStatic}
+    // @ts-ignore
     {...props}
   >
     {children}
   </StyledButton>
 );
+
+export const defaultProps = {
+  disabled: false,
+  bgHoverColor: '',
+  width: '100px',
+  fontSize: '13px',
+  loading: false,
+  isStatic: false,
+};
+
+ButtonTemplate.defaultProps = defaultProps;
 
 export default ButtonTemplate;
