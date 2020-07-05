@@ -55,11 +55,13 @@ const theme: DefaultTheme = {
     gray4: '#aaa',
     gray31: '#C4C4C4',
     gray3: '#c7c7c7',
+    gray27: '#e4ecf6',
     gray26: '#D2D2D2',
     gray25: '#D9D9D6',
     gray2: '#f4f4f4',
     gray1: '#fafafa',
     white: '#fff',
+    gold: '#DEB382',
 
     sativaDominant: '#EA1D76',
     sativa: '#FFB819',
@@ -68,7 +70,7 @@ const theme: DefaultTheme = {
     indica: '#000A8B',
   },
   fonts: {
-    primary: 'Avenir Next, sans-serif',
+    primary: 'Playfair Display',
   },
   elements: {
     header: '120px',

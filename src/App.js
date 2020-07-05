@@ -5,6 +5,7 @@ import Helmet from 'react-helmet';
 import { StateInspector } from 'reinspect';
 import theme from './theme';
 import HeaderContainer from './header/containers/HeaderContainer';
+import MobileMenuContainer from './mobilemenu/containers/MobileMenuContainer';
 import GlobalStyle from './theme/globalstyle';
 import Routes from './routes/organisms/Routes';
 import CustomIsomorphicProviders from './common/molecules/CustomIsomorphicProviders';
@@ -43,6 +44,7 @@ const App = () => {
             <GlobalStyle />
             <HeaderContainer />
             <Routes />
+            <MobileMenuContainer />
           </div>
         </ThemeProvider>
       </CustomIsomorphicProviders>

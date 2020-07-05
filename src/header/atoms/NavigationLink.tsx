@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router';
 
 import uuid from 'uuid';
 import $ from 'jquery';
@@ -16,35 +17,30 @@ type INavigationLink = {
 
 const Container = styled.div`
   position: relative;
-  height: 100%;
-  color: #000;
-  font-size: 15px;
-  font-weight: 600;
   cursor: pointer;
   display: inline-block;
   z-index: 2;
   vertical-align: top;
+  padding: 35px 25px;
+  -webkit-transition: color 400ms ease;
+  transition: color 400ms ease;
+  font-size: 15px;
+  line-height: 25px;
 `;
 
-const Title = styled.div`
-  height: 100%;
+const Title = styled.div<{ isActive: boolean }>`
   box-sizing: border-box;
   transition: all 0.1s linear;
-  color: ${p => p.theme.colors.black};
-  margin-right: 40px;
-  ${p => p.theme.breakpoint.down('xl')`
-    margin-right: 18px;
-  `}
+  color: ${p => (p.isActive ? p.theme.colors.gold : p.theme.colors.black)};
+  border-bottom: ${p => (p.isActive ? `3px dashed ${p.theme.colors.gold}` : 'none')};
 
   &:hover {
-    color: ${p => p.theme.colors.red2};
-    border-bottom: 3px solid ${p => p.theme.colors.red2};
+    color: ${p => p.theme.colors.gold};
+    border-bottom: 3px dashed ${p => p.theme.colors.gold};
   }
 
   a {
-    height: 100%;
     display: inline-block;
-    line-height: 80px;
     color: inherit;
     text-decoration: none;
   }
@@ -53,9 +49,9 @@ const Title = styled.div`
 const Subnav = styled.div<{ visible: boolean; adjustment: number }>`
   position: absolute;
   top: 65px;
-  background-color: #fff;
+  background-color: ${p => p.theme.colors.white};
   padding: 30px 30px 25px 30px;
-  color: #222;
+  color: ${p => p.theme.colors.black};
   display: ${p => (p.visible ? 'block' : 'none')};
   margin-left: ${p => `${p.adjustment}px`};
   white-space: nowrap;
@@ -65,7 +61,7 @@ const Subnav = styled.div<{ visible: boolean; adjustment: number }>`
     margin-bottom: 15px;
 
     &:hover {
-      color: ${p => p.theme.colors.red2};
+      color: ${p => p.theme.colors.gold};
     }
 
     a {
@@ -82,6 +78,8 @@ const Subnav = styled.div<{ visible: boolean; adjustment: number }>`
 const Wrapper = styled.div``;
 
 export default function NavigationLink({ item, onMouseEnter, onMouseLeave, closeOverlay }: INavigationLink) {
+  const history = useHistory();
+  const { pathname } = history.location;
   const [id] = useState(uuid());
   const [visible, setVisible] = useState(false);
   const [adjustment, setAdjustment] = useState(0);
@@ -107,31 +105,17 @@ export default function NavigationLink({ item, onMouseEnter, onMouseLeave, close
         setVisible(false);
       }}
     >
-      {item.title === 'Shop' ? (
-        <Title
-          id={`${id}title`}
-          onClick={() => {
-            closeOverlay();
-            setVisible(false);
-          }}
-        >
-          <Link data-testid={item.url} to="/shop">
-            {item.title}
-          </Link>
-        </Title>
-      ) : (
-        <Title id={`${id}title`}>
-          {item.url &&
-            (isAbsoluteUrl(item.url) ? (
-              <a href={item.url}>{item.title}</a>
-            ) : (
-              <Link data-testid={item.url} to={item.url}>
-                {item.title}
-              </Link>
-            ))}
-          {!item.url && <span>{item.title}</span>}
-        </Title>
-      )}
+      <Title id={`${id}title`} isActive={item.url === pathname}>
+        {item.url &&
+          (isAbsoluteUrl(item.url) ? (
+            <a href={item.url}>{item.title}</a>
+          ) : (
+            <Link data-testid={item.url} to={item.url}>
+              {item.title}
+            </Link>
+          ))}
+        {!item.url && <span>{item.title}</span>}
+      </Title>
 
       {item.subnav && item.subnav.length > 0 && item.title !== 'Shop' && (
         <Subnav visible={visible} id={`${id}menu`} adjustment={adjustment}>

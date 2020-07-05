@@ -8,7 +8,7 @@ const Container = styled.header`
   position: relative;
   width: 100%;
   height: 100%;
-  max-width: 1540px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 50px;
   display: flex;
@@ -20,6 +20,7 @@ const Container = styled.header`
 `;
 
 const ContainerStart = styled.div`
+  width: 100%;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;

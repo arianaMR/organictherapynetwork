@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-  font-family: 'Avenir Next', 'Museo Sans', 'Times New Roman', Times, serif;
+  font-family: 'Playfair Display', sans-serif;
 
   a {
     text-decoration: none;

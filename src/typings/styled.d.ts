@@ -40,11 +40,13 @@ declare module 'styled-components' {
       gray4: string;
       gray31: string;
       gray3: string;
+      gray27: string;
       gray26: string;
       gray25: string;
       gray2: string;
       gray1: string;
       white: string;
+      gold: string;
 
       sativaDominant: string;
       sativa: string;

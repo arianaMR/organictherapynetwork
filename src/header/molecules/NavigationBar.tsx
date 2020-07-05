@@ -28,9 +28,10 @@ const fadeOut = (val: number) => keyframes`
 `;
 
 const Container = styled.div`
-  height: 65px;
+  height: 95px;
   z-index: 2;
   padding-left: 25px;
+  margin: 0 0 0 auto;
 `;
 
 const Overlay = styled.div<{ visible: boolean }>`
@@ -38,7 +39,7 @@ const Overlay = styled.div<{ visible: boolean }>`
   width: 200vw;
   margin: 0 -50%;
   height: 100vh;
-  background-color: #222;
+  background-color: ${p => p.theme.colors.black};
   opacity: 0.45;
   display: inline-block;
   visibility: ${props => (props.visible ? 'visible' : 'hidden')};
