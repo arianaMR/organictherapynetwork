@@ -19,7 +19,7 @@ const HeaderWrapper = styled.div`
 `;
 
 const HeaderRearPaddingForNonHeaderContent = styled.div`
-  height: 106px;
+  height: 96px;
   ${p => p.theme.breakpoint.down('m')`
     height: 99px;
   `}

@@ -17,6 +17,12 @@ export const ButtonCommon = styled.button`
   ${buttonCommonStyles}
 `;
 
+export const PrimaryCommonProps = (bgHoverColor?: string) => ({
+  fontSize: '15px',
+  width: '150px',
+  bgHoverColor,
+});
+
 type IStyledButton = {
   borderColor: string;
   bgColor: string;

@@ -1,7 +1,7 @@
 import { all, takeLatest } from 'redux-saga/effects';
 import { actions } from '.';
 
-function* testSaga() {
+function* setHomepageImageSaga() {
   try {
     // yield other functionality something else
     // yield put(anotherFunction());
@@ -11,5 +11,5 @@ function* testSaga() {
 }
 
 export default function*() {
-  yield all([takeLatest(actions.SET_TEST, testSaga)]);
+  yield all([takeLatest(actions.SET_HOMEPAGE_IMAGE, setHomepageImageSaga)]);
 }

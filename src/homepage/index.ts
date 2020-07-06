@@ -1,27 +1,24 @@
 import { handleActions, createAction } from 'redux-actions';
 import mapActions from '../helpers/mapActions';
 
-export const actions = mapActions(['SET_TEST'], 'HOMEPAGE');
-export const setTest = createAction(actions.SET_TEST);
+export const actions = mapActions(['SET_HOMEPAGE_IMAGE'], 'HOMEPAGE');
+export const setHomepageImage = createAction(actions.SET_HOMEPAGE_IMAGE);
 
-export type ITestState = {
-  test: string;
+export type IHomepageState = {
+  homepage: string;
 };
-type ITestPayload = { payload: string };
+type IHomepagePayload = { payload: string };
 
-export const initialState: ITestState = {
-  test: 'hello World',
+export const initialState: IHomepageState = {
+  homepage: '',
 };
 
 export default handleActions(
   {
-    [actions.SET_TEST]: (state: ITestState, { payload: test }: ITestPayload) => {
-      debugger;
-      return {
-        ...state,
-        test,
-      };
-    },
+    [actions.SET_HOMEPAGE_IMAGE]: (state: IHomepageState, { payload: homepage }: IHomepagePayload) => ({
+      ...state,
+      homepage,
+    }),
   },
   initialState,
 );
