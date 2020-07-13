@@ -12,9 +12,9 @@ const Skeleton = process.browser ? require('react-loading-skeleton').default : (
 
 const Container = styled.div`
   position: ${p => p.position};
-  width: 100%;
   overflow: hidden;
   background-color: ${p => (p.transparent ? 'transparent' : p.theme.colors.gray1)};
+  width: ${p => (p.width ? p.width : '100%')};
   text-align: left;
   padding-bottom: ${p => p.ratio};
   ${p => {
@@ -57,7 +57,18 @@ const Fullsize = styled(Template)`
 `;
 // TODO set up image so it only lazy loads if image not in cache (currently, brief gray flash even if image in cache) https://www.darrenlester.com/blog/instantly-loading-cached-images
 
-const Img = ({ src, contentfulAsset, ratio, skeleton, thumbWidth, fullsizeWidth, position, transparent, onLoad }) => {
+const Img = ({
+  src,
+  contentfulAsset,
+  ratio,
+  skeleton,
+  thumbWidth,
+  fullsizeWidth,
+  position,
+  transparent,
+  onLoad,
+  width,
+}) => {
   const divRef = useRef(null);
 
   const [id] = useState(uuid());
@@ -139,7 +150,14 @@ const Img = ({ src, contentfulAsset, ratio, skeleton, thumbWidth, fullsizeWidth,
   }, [thumbLoaded, fullsizeLoaded]);
 
   return (
-    <Container className="image-container" ratio={ratio} ref={divRef} position={position} transparent={transparent}>
+    <Container
+      className="image-container"
+      width={width}
+      ratio={ratio}
+      ref={divRef}
+      position={position}
+      transparent={transparent}
+    >
       {!transparent && skeleton && <Skeleton width="100%" height="100%" />}
 
       {thumbLoaded && (

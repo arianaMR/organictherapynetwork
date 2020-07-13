@@ -11,9 +11,6 @@ const Skeleton = process.browser ? require('react-loading-skeleton').default : (
 const Container = styled.div`
   position: relative;
   width: 100%;
-  max-width: 1540px;
-  padding: 0 50px;
-  margin: 0 auto 10px auto;
   background-color: #fff;
   ${p =>
     p.theme.breakpoint.down('s')`
@@ -32,8 +29,9 @@ const Container = styled.div`
 
 const Content = styled.div`
   position: absolute;
-  top: 50%;
-  width: 550px;
+  top: 83%;
+  left: 48%;
+  width: fit-content;
   max-width: calc(100% - 100px);
   transform: translateY(-50%);
   color: ${p => p.color};
@@ -87,6 +85,9 @@ const DesktopImage = styled.div`
     display: none
   `}
 `;
+const Wrapper = styled.div`
+  position: relative;
+`;
 
 const MobileImage = styled.div`
   display: none;
@@ -101,6 +102,21 @@ const Logo = styled.img`
   ${p => p.theme.breakpoint.down('s')`
     width: 129px;
   `}
+`;
+const Label = styled.div`
+  color: #8f8f8f;
+  position: relative;
+  font-size: 85px;
+  font-family: 'Times New Roman', Times, serif;
+  width: 100%;
+  letter-spacing: 4px;
+`;
+const Overlay = styled.div`
+  position: absolute;
+  color: white;
+  font-size: 27px;
+  top: 86px;
+  left: 368px;
 `;
 
 const Header = styled.div`
@@ -148,18 +164,21 @@ const PrimaryPromo = ({ data }) => {
     <Container>
       <UniversalLink to={url}>
         <DesktopImage>
-          <Image src={url} ratio="31%" fullsizeWidth="2000" />
+          <Image src={url} ratio="52%" fullsizeWidth="2000" />
         </DesktopImage>
-        {/*
-        <MobileImage>
+
+        {/* <MobileImage>
           <Image src={mobileImage.url} ratio="83%" fullsizeWidth="1000" />
         </MobileImage> */}
 
         <Content width={width}>
-          <Logo src={LogoSrc} alt="logo" />
-
-          {width > 767 && <Header dangerouslySetInnerHTML={{ __html: header }} />}
-          {width <= 767 && <Header isLog dangerouslySetInnerHTML={{ __html: header }} />}
+          {/* <Logo src={LogoSrc} alt="logo" /> */}
+          <Wrapper>
+            <Label>ORGANIC THERAPY</Label>
+            <Overlay>NETWORK</Overlay>
+          </Wrapper>
+          {/* {width > 767 && <Header dangerouslySetInnerHTML={{ __html: header }} />}
+          {width <= 767 && <Header isLog dangerouslySetInnerHTML={{ __html: header }} />} */}
         </Content>
       </UniversalLink>
     </Container>

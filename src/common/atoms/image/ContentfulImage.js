@@ -27,7 +27,9 @@ const ContentfulImage = ({ asset, width = null, alt = 'asset', ...rest }) => {
       contentfulClient.getAsset(asset).then(x => {
         if (isSubscribed && x.fields && x.fields.file && x.fields.file.url) setSrc(x.fields.file.url + postfix());
       });
-    return () => { isSubscribed = false };
+    return () => {
+      isSubscribed = false;
+    };
   }, [asset, postfix]);
 
   if (!src) return null;

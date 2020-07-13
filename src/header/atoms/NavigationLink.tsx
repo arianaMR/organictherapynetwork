@@ -32,11 +32,11 @@ const Title = styled.div<{ isActive: boolean }>`
   box-sizing: border-box;
   transition: all 0.1s linear;
   color: ${p => (p.isActive ? p.theme.colors.gold : p.theme.colors.black)};
-  border-bottom: ${p => (p.isActive ? `3px dashed ${p.theme.colors.gold}` : 'none')};
+  border-bottom: ${p => (p.isActive ? `1px solid ${p.theme.colors.gold}` : 'none')};
 
   &:hover {
     color: ${p => p.theme.colors.gold};
-    border-bottom: 3px dashed ${p => p.theme.colors.gold};
+    border-bottom: 1px solid ${p => p.theme.colors.gold};
   }
 
   a {
