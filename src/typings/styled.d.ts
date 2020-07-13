@@ -47,7 +47,7 @@ declare module 'styled-components' {
       gray1: string;
       white: string;
       gold: string;
-
+      lilac: string;
       sativaDominant: string;
       sativa: string;
       indicaDominant: string;

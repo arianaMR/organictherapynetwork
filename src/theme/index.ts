@@ -61,8 +61,8 @@ const theme: DefaultTheme = {
     gray2: '#f4f4f4',
     gray1: '#fafafa',
     white: '#fff',
-    gold: '#DEB382',
-
+    gold: '#D7B557',
+    lilac: '#9398C0',
     sativaDominant: '#EA1D76',
     sativa: '#FFB819',
     indicaDominant: '#00A8E1',

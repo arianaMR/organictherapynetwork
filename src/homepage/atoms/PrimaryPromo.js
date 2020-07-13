@@ -29,8 +29,12 @@ const Container = styled.div`
 
 const Content = styled.div`
   position: absolute;
-  top: 83%;
-  left: 48%;
+  /* top: 45%;
+  /* top: 60%; */
+  /* left: 48.5%;  */
+
+  top: 85%;
+  left: 42%;
   width: fit-content;
   max-width: calc(100% - 100px);
   transform: translateY(-50%);
@@ -81,9 +85,15 @@ const Content = styled.div`
 `;
 
 const DesktopImage = styled.div`
+  /* position: relative;
+  background-color: #16282f; */
   ${p => p.theme.breakpoint.down('m')`
     display: none
-  `}
+  `} /* img {
+    top: 135px;
+    width: 85%;
+    height: 85%;
+  } */
 `;
 const Wrapper = styled.div`
   position: relative;
@@ -106,7 +116,8 @@ const Logo = styled.img`
 const Label = styled.div`
   color: #8f8f8f;
   position: relative;
-  font-size: 85px;
+  font-size: 82px;
+  font-size: 90px;
   font-family: 'Times New Roman', Times, serif;
   width: 100%;
   letter-spacing: 4px;
@@ -114,9 +125,10 @@ const Label = styled.div`
 const Overlay = styled.div`
   position: absolute;
   color: white;
-  font-size: 27px;
+  font-size: 30px;
   top: 86px;
-  left: 368px;
+  /* left: 334px; */
+  left: 378px;
 `;
 
 const Header = styled.div`
@@ -164,7 +176,7 @@ const PrimaryPromo = ({ data }) => {
     <Container>
       <UniversalLink to={url}>
         <DesktopImage>
-          <Image src={url} ratio="52%" fullsizeWidth="2000" />
+          <Image src={url} ratio="53%" fullsizeWidth="2000" />
         </DesktopImage>
 
         {/* <MobileImage>
