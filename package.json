@@ -74,7 +74,7 @@
     "prop-types": "^15.7.2",
     "query-string": "^6.8.1",
     "ramda": "^0.26.1",
-    "razzle": "^3.0.0",
+    "razzle": "^4.2.18",
     "react": "^16.10.1",
     "react-accessible-accordion": "^3.0.0",
     "react-animate-height": "^2.0.20",
